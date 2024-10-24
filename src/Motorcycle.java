@@ -3,7 +3,7 @@ import Vehicle.Vehicle;
 import java.io.*;
 import Exceptions.*;
 
-class Motorcycle implements Vehicle, Serializable, Cloneable{
+class Motorcycle implements Vehicle{
     private class Model implements Serializable{
         String name;
         double price;
@@ -236,8 +236,9 @@ class Motorcycle implements Vehicle, Serializable, Cloneable{
             Model newModel = new Model(current.getName(), current.getPrice());
             newModel.prev = cloneCurrent;
             newModel.next = cloneCurrent.next;
-            cloneCurrent.next = newModel;
             cloneCurrent.next.prev = newModel;
+            cloneCurrent.next = newModel;
+            
             current = current.next;
             cloneCurrent = cloneCurrent.next;
         }

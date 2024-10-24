@@ -3,7 +3,7 @@ import Exceptions.*;
 import Vehicle.Vehicle;
 import java.io.*;
 
-class Car implements Vehicle, Serializable, Cloneable{
+class Car implements Vehicle{
     private String brand;
     public String getBrand(){return brand;}
     public void setBrand(String newBrand){brand = newBrand;}
@@ -152,7 +152,8 @@ class Car implements Vehicle, Serializable, Cloneable{
         for (int i = 0; i < getModelsSize(); i++) {
             boolean isFound = false;
             for(int j = 0; j < getModelsSize(); j++){
-                if (models[i].getName().equals(car.getModelsNames()[j]) && models[i].getPrice() == car.getModelsPrices()[j]) {
+                if (models[i].getName().equals(car.getModelsNames()[j]) 
+                     && models[i].getPrice() == car.getModelsPrices()[j]) {
                     isFound = true;
                     break;
                 }
